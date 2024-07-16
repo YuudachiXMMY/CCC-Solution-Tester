@@ -1,5 +1,13 @@
 # !/usr/local/bin/python
 # -*- coding: utf-8 -*-
+"""
+File: test.py
+Author: Jadyn Wu
+Date: 2024-07-16
+
+Description: A Python solution tester for University of Waterloo CCC (Canadian Computing Competition)
+"""
+
 import os, sys, io
 from itertools import groupby
 

@@ -1,6 +1,5 @@
 # !/usr/local/bin/python
 # -*- coding: utf-8 -*-
-import CCCs_test
 
 def is_alternating_heavy_light(s):
     # Step 1: Count the frequency of each letter
