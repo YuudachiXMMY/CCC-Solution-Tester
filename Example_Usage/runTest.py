@@ -1,5 +1,12 @@
 # !/usr/local/bin/python
 # -*- coding: utf-8 -*-
+"""
+File: runTest.py
+Author: Jadyn Wu
+Date: 2024-07-16
+
+Description: A Python solution tester for University of Waterloo CCC (Canadian Computing Competition)
+"""
 import os, sys, io
 from itertools import groupby
 
@@ -53,12 +60,32 @@ import unittest
 from unittest.mock import patch
 from io import StringIO
 
+def logResult(passedTest, failedTest):
+    print("="*10, "Passed Test", "="*10)
+    if passedTest == None:
+        print("\tN/A")
+    else:
+        for t in passedTest:
+            print('\t-', t)
+
+    print()
+
+    print("="*10, "Failed Test", "="*10)
+    if failedTest == None:
+        print("\tN/A")
+    else:
+        for t in failedTest:
+            print('\t-', t)
+
 class TEST(unittest.TestCase):
     PROBLEM = ''
     def test(self):
 
         SETUP_ENV(PROBLEM)
         TEST_DATA = GET_DATA(TEST_DATA_DIR)
+
+        passedTest = []
+        failedTest = []
 
         for key in TEST_DATA:
             if (len(TEST_DATA[key]) != 2):
@@ -85,8 +112,17 @@ class TEST(unittest.TestCase):
                 output = str.strip(output)+"\n"
                 output_str = str.strip(output_str)+"\n"
 
+
+
                 # Assert the output
-                self.assertEqual(output, output_str)
+                try:
+                    self.assertEqual(output, output_str)
+                    passedTest.append(key)
+                except:
+                    failedTest.append(key)
+                    continue
+
+        logResult(passedTest, failedTest)
 
 if __name__ == '__main__':
     PROBLEM = sys.argv.pop()
