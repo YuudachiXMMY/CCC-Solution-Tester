@@ -12,7 +12,7 @@ Make sure your directory structure match the following:
 
 ```text
 /SOME_FOLDER/
-    - tester.py     [THIS PROGRAM]
+    - runTest.py    [THIS PROGRAM]
     - s1.py         [Your solution to s1]
     - s2.py         [Your solution to s2]
     - /all_data/
@@ -52,5 +52,5 @@ In the [case above](#for-file-directories), your terminal directory should be **
 Running test in the terminal for `s1`:
 
 ```bash
-python tester.py s1
+python runTest.py s1
 ```
